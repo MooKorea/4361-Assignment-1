@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+@import "header.scss";
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  background-color: rgb(75, 75, 75);
+}

@@ -1,0 +1,36 @@
+header {
+    .intro-video {
+        height:100vh;
+        width: 100vw;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    video {
+        @media (min-aspect-ratio: 16/9) {
+            width: 100vw;
+            height: auto;
+        }
+        height: 100vh;
+        width: auto;
+    }
+
+    .header-background{
+        width: 100vw;
+        transform: scaleX(-1);
+    }
+
+    .mute-button {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 30px;
+        background-color: black;
+        z-index: 5;
+    }
+}
