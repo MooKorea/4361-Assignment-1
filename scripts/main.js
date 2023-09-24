@@ -32,16 +32,16 @@ const handleEnterSite = async (e) => {
   }
   anime({
     targets: ".with-sound",
-    translateX: "-70vw",
+    translateX: "-100vw",
     easing: "easeInElastic(10, 1)",
-    duration: 600,
+    duration: 700,
   });
 
   anime({
     targets: ".without-sound",
-    translateX: "70vw",
+    translateX: "100vw",
     easing: "easeInElastic(10, 1)",
-    duration: 600,
+    duration: 700,
   });
 
   await sleep(600);
