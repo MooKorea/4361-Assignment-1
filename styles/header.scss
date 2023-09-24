@@ -9,6 +9,10 @@ header {
         z-index: 10;
     }
 
+    .white-fill {
+        background-color: white;
+    }
+
     video {
         @media (min-aspect-ratio: 16/9) {
             width: 100vw;

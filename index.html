@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Eat at the Baratie!</title>
   </head>
-  <body>
+  <body style="overflow-x: hidden; overflow-y: hidden; margin: 0;">
     <header>
-      <div class="mute-button">
-
-      </div>
-      <div class="intro-video">
-        <video muted playsinline ref="{introVideo}">
+      <div class="mute-button"></div>
+      <div
+        class="intro-video"
+        style="
+          position: fixed;
+          height: 100vh;
+          width: 100vw;
+          background-color: white;
+          overflow: hidden;
+        "
+      >
+        <video muted playsinline class="intro-video-src" style="opacity: 0;">
           <source src="/Baratie-Intro0001-0126.webm" type="video/mp4" />
         </video>
         <audio class="background-music" src="Baratie.mp3"></audio>
