@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+@import "./abstracts/fonts.scss";
+@import "./abstracts/colors.scss";
 @import "header.scss";
 
 body {

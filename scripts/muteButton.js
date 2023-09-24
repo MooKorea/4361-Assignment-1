@@ -6,7 +6,7 @@ export function muteButton() {
   let isMuted = false;
   const handleMuteButton = () => {
     isMuted = !isMuted;
-    backGroundMusic.volume = isMuted ? 0 : 0.5;
+    isMuted ? backGroundMusic.pause() : backGroundMusic.play()
   };
 
   muteButton.addEventListener("click", handleMuteButton);

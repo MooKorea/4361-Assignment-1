@@ -1,39 +1,142 @@
 header {
-    .intro-video {
-        height:100vh;
-        width: 100vw;
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10;
+  .intro-video {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .white-fill {
+    background-color: white;
+  }
+
+  video {
+    @media (min-aspect-ratio: 16/9) {
+      width: 100vw;
+      height: auto;
+    }
+    height: 100vh;
+    width: auto;
+  }
+
+  .mute-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    z-index: 5;
+  }
+
+  .intro-buttons-container {
+    position: fixed;
+    bottom: 8%;
+    z-index: 15;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-buttons {
+    @media (min-height: 700px) {
+        flex-direction: column;
+        gap: 1em;
     }
 
-    .white-fill {
-        background-color: white;
+    display: flex;
+    gap: 2em;
+    flex-direction: row;
+    margin-block: 1.2em;
+    font-size: 1rem;
+
+    .button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      height: 40px;
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    video {
-        @media (min-aspect-ratio: 16/9) {
-            width: 100vw;
-            height: auto;
-        }
-        height: 100vh;
-        width: auto;
+    .with-sound {
+      background-color: black;
+      color: white;
     }
 
-    .header-background{
-        width: 100vw;
-        transform: scaleX(-1);
+    .without-sound {
+        border: solid 2px black;
+    }
+  }
+
+  .header-background {
+    width: 100vw;
+    transform: scaleX(-1);
+    position: absolute;
+  }
+
+  .header-background-graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    svg {
+        width: 100%;
+        position: absolute;
+        top: -80px;
+    }
+  }
+
+  .text-background-graphic {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    width: 600px;
+    svg {
+        width: 100%;
+    }
+  }
+
+  .title {
+    position: absolute;
+    top: 90px;
+    left: 150px;
+    font-family: $textDisplay;
+    color: $primary;
+    font-size: 3.1rem;
+    letter-spacing: 0.14em;
+    line-height: 1.5em;
+    
+    .eat {
+        font-size: 4.5rem;
+    }
+    .at-the {
+        position: relative;
+        left: -12px;
+        font-size: 2.5rem;
+        color: white;
+        letter-spacing: 4px;
+        background: -webkit-linear-gradient($secondary 30%,#ffffff67);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    .mute-button {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100px;
-        height: 30px;
-        background-color: black;
-        z-index: 5;
+    .baratie, .eat {
+        background: -webkit-linear-gradient($primary 40%,#ffee5154);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
+  }
 }

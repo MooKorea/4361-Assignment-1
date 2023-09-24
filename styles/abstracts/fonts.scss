@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'LuckiestGuy';
+    src: url("abstracts/fonts/LuckiestGuy.ttf");
+}
+
+@font-face {
+    font-family: 'Mitr-Light';
+    src: url("abstracts/fonts/Mitr-Light.ttf");
+}
+
+@font-face {
+    font-family: 'Mitr-Regular';
+    src: url("abstracts/fonts/Mitr-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Mitr-SemiBold';
+    src: url("abstracts/fonts/Mitr-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: 'Mitr-Bold';
+    src: url("abstracts/fonts/Mitr-Bold.ttf");
+}
+
+$textDisplay: "LuckiestGuy", sans-serif;
+$textLight: "Mitr-Light", sans-serif;
+$textRegular: "Mitr-Regular", sans-serif;
+$textSemiBold: "Mitr-SemiBold", sans-serif;
+$textBold: "Mitr-Bold", sans-serif;
