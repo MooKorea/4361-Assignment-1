@@ -1,0 +1,30 @@
+section.body1 {
+    position: relative;
+    .wavy-transition {
+        @media (min-width: 1000px) {
+            top: 30vw;
+        }
+
+        @media (min-width: 1300px) {
+            top: 400px;
+        }
+
+        position: relative;
+        top: 340px;
+        left: 0;
+        width: 100vw;
+        svg {
+            @media (min-width: 800px) {
+                width: 100%;
+            }
+            position: absolute;
+            right: 0;
+            width: 150%;
+        }
+    }
+
+    .spacer {
+        width: 100vw;
+        height: 200vh;
+    }
+}

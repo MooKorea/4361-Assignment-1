@@ -44,8 +44,8 @@ header {
 
   .intro-buttons {
     @media (min-height: 700px), (max-width: 700px) {
-        flex-direction: column;
-        gap: 1em;
+      flex-direction: column;
+      gap: 1em;
     }
 
     display: flex;
@@ -75,12 +75,33 @@ header {
     }
 
     .without-sound {
-        border: solid 2px black;
+      border: solid 2px black;
     }
   }
 
-  .header-background-img {
+  .header-background-img-container {
     width: 100vw;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+  }
+
+  .header-background-img {
+    @media (min-width: 500px) {
+      right: 0;
+    }
+
+    @media (min-width: 1000px) {
+      width: 100%;
+      right: auto;
+    }
+
+    @media (min-width: 1450px) {
+      top: -100px;
+    }
+
+    right: -120px;
+    width: 1000px;
     transform: scaleX(-1);
     position: absolute;
   }
@@ -93,57 +114,100 @@ header {
   }
 
   .bg-1 {
+    @media (min-width: 500px) {
+      transform: scale(0.8) translateX(-50%);
+    }
+
+    @media (min-width: 800px) {
+      transform: scale(1.2);
+      left: -100px;
+      top: -240px;
+    }
+
+    @media (min-width: 1000px) {
+      transform: scale(1.5);
+    }
+
+    left: 40%;
+    top: -100px;
     position: absolute;
-    top: 0;
-    left: 0;
+    transform: scale(0.6) translate(-75%, 100px);
+
+    mix-blend-mode: color-dodge;
     width: 800px;
     svg {
-        width: 100%;
-        position: absolute;
-        top: -80px;
+      width: 100%;
+      position: absolute;
+      top: -80px;
     }
   }
 
   .bg-2 {
+    @media (min-width: 500px) {
+      transform: translateX(-50%);
+    }
+    @media (min-width: 800px) {
+      left: 80px;
+      transform: none;
+    }
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
     position: absolute;
     top: 0;
-    left: 80px;
     width: 600px;
     svg {
-        width: 100%;
+      width: 100%;
     }
   }
 
-  .title {
-    position: absolute;
-    top: 90px;
-    left: 150px;
-    font-family: $textDisplay;
-    color: $primary;
-    font-size: 3.1rem;
-    letter-spacing: 0.14em;
-    line-height: 1.5em;
-    
-    .eat {
-        font-size: 4.5rem;
-    }
-    .at-the {
-        position: relative;
-        left: -12px;
-        font-size: 2.5rem;
-        color: white;
-        letter-spacing: 4px;
-        background: -webkit-linear-gradient($secondary 30%,#ffffff67);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+  h1.title {
+    @media (min-width: 500px) {
+      font-size: 7rem;
+      left: calc(50% - 240px);
+      line-height: 4.5rem;
+      top: 80px;
     }
 
-    .baratie, .eat {
-        background: -webkit-linear-gradient($primary 40%,#ffee5154);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+    @media (min-width: 800px) {
+      left: 150px;
+    }
+
+    left: calc(50% - 140px);
+    font-size: 4rem;
+    position: absolute;
+    top: 150px;
+    font-family: $textDisplay;
+    color: $primary;
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 2.8rem;
+
+    .eat {
+      @media (min-width: 500px) {
+        font-size: 5rem;
+      }
+      font-size: 3rem;
+    }
+    .at-the {
+      @media (min-width: 500px) {
+        font-size: 3rem;
+      }
+      position: relative;
+      left: -12px;
+      font-size: 2rem;
+      color: white;
+      background: -webkit-linear-gradient($secondary 30%, #ffffff67);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .baratie,
+    .eat {
+      background: -webkit-linear-gradient($primary 40%, #ffee5154);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
