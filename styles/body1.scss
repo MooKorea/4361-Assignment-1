@@ -6,7 +6,7 @@ section.body1 {
     }
 
     @media (min-width: 1300px) {
-      top: 400px;
+      top: 350px;
     }
 
     position: relative;
@@ -40,7 +40,8 @@ section.body1 {
     }
 
     @media (min-width: 1000px) {
-      top: 40vw;
+      top: 37vw;
+      gap: 5em;
     }
 
     position: absolute;
@@ -66,28 +67,54 @@ section.body1 {
     }
 
     .menu {
+      @media (min-width: 1300px) {
+        right: 60px;
+        top: 0px;
+        font-size: 2rem;
+      }
       font-size: 1.5rem;
       top: 49px;
       right: 40px;
       .log {
+        @media (min-width: 1300px) {
+          width: 200px;
+          height: 200px;
+        }
         width: 140px;
         height: 140px;
       }
     }
 
     .reserve {
+      @media (min-width: 1300px) {
+        top: 0px;
+        font-size: 2.5rem;
+        line-height: 40px;
+      }
       font-size: 2rem;
       line-height: 35px;
+      top: 60px;
+
       .label {
+        @media (min-width: 1300px) {
+            width: 200px;
+        }
         width: 140px;
       }
       .log {
+        @media (min-width: 1300px) {
+          width: 250px;
+          height: 250px;
+        }
         width: 200px;
         height: 200px;
       }
     }
 
     .hours {
+      @media (min-width: 1300px) {
+        top: -50px;
+      }
       font-size: 1.5rem;
       line-height: 25px;
       .label {
@@ -122,7 +149,7 @@ section.body1 {
         top: 0;
         right: 0;
         .label {
-            width: auto;
+          width: auto;
         }
       }
     }
