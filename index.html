@@ -21,7 +21,7 @@
         <video playsinline muted class="intro-video-src fade-in" style="opacity: 0">
           <source src="/Baratie-Intro0001-0126HEVC.mp4" type='video/mp4; codecs="hvc1"' />
           <source src="/Baratie-Intro0001-0126.webm" type="video/webm" />
-          <source src="/Baratie-Intro-Fallback0001-0126.mp4" type="video/mp4" />
+          <source src="/Baratie-Intro-Fallback.mp4" type="video/mp4" />
         </video>
         <audio class="background-music" src="Baratie.mp3"></audio>
         <audio class="select-sound" src="game-start-6104.mp3"></audio>
@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="header-background-img-container">
-        <img src="Baratie-set.jpg" class="header-background-img" />
+        <img src="Baratie-set.jpg" class="header-background-img" alt="photo of the Baratie" />
       </div>
       <div class="background-graphics">
         <div class="bg-1">
@@ -106,11 +106,25 @@
             </defs>
           </svg>
         </div>
+        <div class="buttons">
+          <div class="menu">
+            <img src="Images/log 1.png"/>
+            <div>Menu</div>
+          </div>
+          <div class="reserve">
+            <img src="Images/log 1.png"/>
+            <div>Book a Table</div>
+          </div>
+          <div class="hours">
+            <img src="Images/log 1.png"/>
+            <div>Hours & Location</div>
+          </div>
+        </div>
       </section>
     </main>
     <script type="module" src="scripts/main.js"></script>
     <script>
-      if ("%MODE%" === "develoopment") {
+      if ("%MODE%" === "development") {
         document.querySelector("body").style.overflowY = "auto";
         document.querySelector(".intro-video").remove();
         document.querySelector(".intro-buttons-container").remove();

@@ -27,4 +27,77 @@ section.body1 {
         width: 100vw;
         height: 200vh;
     }
+
+    .buttons {
+        @media (min-width: 580px) {
+            flex-direction: row;
+            right: 60px;
+        }
+
+        @media (min-width: 800px) {
+            top: 50vw;
+        }
+
+        @media (min-width: 1000px) {
+            top: 40vw;
+        }
+
+        position: absolute;
+        top: 500px;
+        right: calc(50% - 80px);
+        font-family: $textBold;
+        color: $primary;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+        div {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div {
+                text-align: center;
+                text-shadow: 1px 4px 10px rgb(0, 0, 0);
+                letter-spacing: 1px;
+                z-index: 2;
+            }
+        }
+
+        div > img {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .menu {
+            font-size: 1.5rem;
+            top: 49px;
+            right: 40px;
+            img {
+                width: 140px;
+            }
+        }
+
+        .reserve {
+            font-size: 2rem;
+            line-height: 35px;
+            div {
+                width: 140px;
+            }
+            img {
+                width: 200px;
+            }
+        }
+
+        .hours {
+            font-size: 1.5rem;
+            line-height: 25px;
+            div {
+                width: 140px;
+            }
+            img {
+                width: 180px;
+            }
+        }
+    }
 }
