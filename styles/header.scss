@@ -33,6 +33,10 @@ header {
   }
 
   .intro-buttons-container {
+    @media (max-height: 400px), (max-width: 400px) {
+      bottom: 1em;
+    }
+
     position: fixed;
     bottom: 8%;
     z-index: 15;
@@ -128,6 +132,10 @@ header {
       transform: scale(1.5);
     }
 
+    @media (min-width: 1450px) {
+      left: 5%;
+    }
+
     left: 40%;
     top: -100px;
     position: absolute;
@@ -150,6 +158,12 @@ header {
       left: 80px;
       transform: none;
     }
+
+    @media (min-width: 1450px) {
+      left: 15%;
+      transform: translate(-50px, 40px) scale(1.2);
+    }
+
     left: 50%;
     transform: translateX(-50%) scale(0.7);
     position: absolute;
@@ -170,6 +184,11 @@ header {
 
     @media (min-width: 800px) {
       left: 150px;
+    }
+
+    @media (min-width: 1450px) {
+      left: 15%;
+      top: 120px;
     }
 
     left: calc(50% - 140px);
