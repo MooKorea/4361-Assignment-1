@@ -18,9 +18,10 @@
           overflow: hidden;
         "
       >
-        <video muted playsinline class="intro-video-src fade-in" style="opacity: 0">
-          <source src="/Baratie-Intro0001-0126.hevc.mp4" type="video/mp4; codecs='hvc1'" />
-          <source src="/Baratie-Intro0001-0126.webm" type="video/mp4" />
+        <video muted class="intro-video-src fade-in" style="opacity: 0">
+          <source src="/Baratie-Intro0001-0126.hevc.mp4" type='video/mp4; codecs="hvc1"' />
+          <source src="/Baratie-Intro0001-0126.webm" type="video/webm" />
+          <source src="/Baratie-Intro-Fallback0001-0126.mp4" type="video/mp4" />
         </video>
         <audio class="background-music" src="Baratie.mp3"></audio>
         <audio class="select-sound" src="game-start-6104.mp3"></audio>
@@ -109,7 +110,7 @@
     </main>
     <script type="module" src="scripts/main.js"></script>
     <script>
-      if ("%MODE%" === "developement") {
+      if ("%MODE%" === "developiement") {
         document.querySelector("body").style.overflowY = "auto";
         document.querySelector(".intro-video").remove();
         document.querySelector(".intro-buttons-container").remove();
