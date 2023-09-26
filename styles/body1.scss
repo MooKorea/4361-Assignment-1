@@ -29,7 +29,7 @@ section.body1 {
   }
 
   .buttons {
-    @media (min-width: 630px) {
+    @media (min-width: 631px) {
       flex-direction: row;
       gap: 3em;
       right: 60px;
@@ -42,6 +42,10 @@ section.body1 {
     @media (min-width: 1000px) {
       top: 37vw;
       gap: 5em;
+    }
+
+    @media (min-width: 1300px) {
+        top: 600px;
     }
 
     position: absolute;
