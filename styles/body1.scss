@@ -154,24 +154,31 @@ section.body1 {
   }
 
   $content-collapse: 950px;
-  
+
   .content-container {
     @media (min-width: $content-collapse) {
       background: none;
+      top: calc(450px - 80vh + 10vw);
     }
+
     position: relative;
-    top: calc(500px - 80vh);
+    top: calc(550px - 80vh);
     width: 100%;
     display: flex;
     justify-content: center;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 85%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
-  
+
   .content {
     @media (min-width: $content-collapse) {
       flex-direction: row;
       gap: 4em;
       width: auto;
+      overflow: visible;
     }
     display: flex;
     flex-direction: column;
@@ -195,7 +202,6 @@ section.body1 {
     .best-food {
       font-size: 3rem;
       line-height: 40px;
-
     }
 
     .in-the {
@@ -217,11 +223,32 @@ section.body1 {
     padding-inline: 5em;
   }
 
-  .slideshow > img {
+  .slideshow {
     @media (min-width: $content-collapse) {
-      width: 550px;
+      height: 100%;
+      width: 500px;
     }
 
-    width: calc(100vw - 6em);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .slideshow > div {
+    @media (min-width: 630px) {
+      width: calc(100vw - 6em);
+    }
+
+    @media (min-width: $content-collapse) {
+      width: 500px;
+    }
+
+    position: absolute;
+    width: calc(100vw - 3em);
+    height: 300px;
+    border-radius: 1em;
+    background-image: url("./images/Baratie-set.jpg");
+    background-size: cover;
   }
 }
