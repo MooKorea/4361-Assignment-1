@@ -45,7 +45,7 @@ section.body1 {
     }
 
     @media (min-width: 1300px) {
-        top: 600px;
+      top: 600px;
     }
 
     position: absolute;
@@ -101,7 +101,7 @@ section.body1 {
 
       .label {
         @media (min-width: 1300px) {
-            width: 200px;
+          width: 200px;
         }
         width: 140px;
       }
@@ -157,5 +157,21 @@ section.body1 {
         }
       }
     }
+  }
+
+  .content-container {
+    padding-top: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    gap: 4em;
+  }
+
+  .slideshow > img {
+    width: 550px;
   }
 }
