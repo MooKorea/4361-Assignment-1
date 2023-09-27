@@ -1,16 +1,12 @@
 section.body1 {
   position: relative;
+  height: 200px;
   .wavy-transition {
-    @media (min-width: 1000px) {
-      top: 30vw;
-    }
-
     @media (min-width: 1300px) {
-      top: 350px;
+      bottom: 90vh;
     }
-
-    position: relative;
-    top: 340px;
+    position: absolute;
+    bottom: 80vh;
     left: 0;
     width: 100vw;
     svg {
@@ -20,6 +16,10 @@ section.body1 {
       position: absolute;
       right: 0;
       width: 150%;
+    }
+
+    .blue {
+      top: calc(-100px + 10vw);
     }
   }
 
@@ -31,25 +31,18 @@ section.body1 {
   .buttons {
     @media (min-width: 631px) {
       flex-direction: row;
-      gap: 3em;
+      gap: calc(2em + 3vw);
       right: 60px;
-    }
-
-    @media (min-width: 800px) {
-      top: 50vw;
-    }
-
-    @media (min-width: 1000px) {
-      top: 37vw;
-      gap: 5em;
+      bottom: 60vh;
     }
 
     @media (min-width: 1300px) {
-      top: 600px;
+      bottom: calc(70vh - 10vw);
+      right: 6vw;
     }
 
     position: absolute;
-    top: 500px;
+    bottom: 50vh;
     right: calc(50% - 110px);
     font-family: $textBold;
     color: $primary;
@@ -160,18 +153,32 @@ section.body1 {
   }
 
   .content-container {
-    padding-top: 800px;
+    @media (min-width: 870px) {
+      background: none;
+    }
     position: relative;
+    top: calc(300px - 50vh);
+    width: 100%;
     display: flex;
     justify-content: center;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
   }
-
+  
   .content {
+    @media (min-width: 870px) {
+      flex-direction: row;
+      gap: 4em;
+    }
     display: flex;
-    gap: 4em;
+    flex-direction: column;
+    gap: 1em;
   }
 
   .slideshow > img {
-    width: 550px;
+    @media (min-width: 870px) {
+      width: 550px;
+    }
+
+    width: calc(100vw - 2em);
   }
 }

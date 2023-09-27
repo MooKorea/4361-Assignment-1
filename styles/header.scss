@@ -84,38 +84,38 @@ header {
     }
   }
 
-  .header-background-img-container {
+  .header-background-container {
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    overflow: hidden;
   }
 
   .header-background-img {
-    @media (min-width: 500px) {
-      right: 0;
-    }
+    height: 100vh;
+    width: 100vw
+  }
 
-    @media (min-width: 1000px) {
-      width: 100%;
-      right: auto;
+  .header-background-img > img {
+    @media (min-aspect-ratio: 16/9) {
+      width: 100vw;
+      height: auto;
     }
+    height: 100vh;
+    right: 0;
+    width: auto;
+    position: fixed;
+  }
 
-    @media (min-width: 1450px) {
-      top: -100px;
-    }
-
-    right: -120px;
-    width: 1000px;
-    transform: scaleX(-1);
+  .background-graphics-container {
     position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 130vh;
+    overflow-x: hidden;
   }
 
   .background-graphics {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    position: relative;
+    top: calc(-200px + 20vh);
   }
 
   .bg-1 {
@@ -196,11 +196,10 @@ header {
     font-size: 4rem;
     position: absolute;
     top: 150px;
-    font-family: $textDisplay;
     color: $primary;
-    font-weight: normal;
     letter-spacing: 4px;
     line-height: 2.8rem;
+    z-index: 2;
 
     .eat {
       @media (min-width: 500px) {
@@ -215,8 +214,7 @@ header {
       position: relative;
       left: -12px;
       font-size: 2rem;
-      color: white;
-      background: -webkit-linear-gradient($secondary 30%, #ffffff67);
+      background: -webkit-linear-gradient($white 30%, #ffffff67);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;

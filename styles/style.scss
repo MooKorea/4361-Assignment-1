@@ -11,3 +11,9 @@ body {
   background-color: rgb(75, 75, 75);
   position: relative
 }
+
+h1, h2, h3 {
+  font-family: $textDisplay;
+  font-weight: normal;
+  color: $secondary;
+}
