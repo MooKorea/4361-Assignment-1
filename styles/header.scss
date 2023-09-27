@@ -91,7 +91,8 @@ header {
 
   .header-background-img {
     height: 100vh;
-    width: 100vw
+    width: 100vw;
+    position: fixed;
   }
 
   .header-background-img > img {
@@ -101,8 +102,8 @@ header {
     }
     height: 100vh;
     right: 0;
+    position: absolute;
     width: auto;
-    position: fixed;
   }
 
   .background-graphics-container {
@@ -110,7 +111,7 @@ header {
     top: 0;
     width: 100vw;
     height: 130vh;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .background-graphics {

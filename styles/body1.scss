@@ -1,6 +1,7 @@
 section.body1 {
   position: relative;
   height: 200px;
+  max-width: 100vw;
   .wavy-transition {
     @media (min-width: 1300px) {
       bottom: 90vh;
@@ -33,7 +34,7 @@ section.body1 {
       flex-direction: row;
       gap: calc(2em + 3vw);
       right: 60px;
-      bottom: 60vh;
+      bottom: calc(80vh - 160px);
     }
 
     @media (min-width: 1300px) {
@@ -152,12 +153,14 @@ section.body1 {
     }
   }
 
+  $content-collapse: 950px;
+  
   .content-container {
-    @media (min-width: 870px) {
+    @media (min-width: $content-collapse) {
       background: none;
     }
     position: relative;
-    top: calc(300px - 50vh);
+    top: calc(500px - 80vh);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -165,20 +168,60 @@ section.body1 {
   }
   
   .content {
-    @media (min-width: 870px) {
+    @media (min-width: $content-collapse) {
       flex-direction: row;
       gap: 4em;
+      width: auto;
     }
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1em;
+    width: 100vw;
+    padding-bottom: 4em;
+    overflow: hidden;
+  }
+
+  h2 {
+    @media (min-width: $content-collapse) {
+      left: 0;
+    }
+
+    position: relative;
+    text-wrap: nowrap;
+    width: fit-content;
+    left: calc(50% - 145px);
+
+    .best-food {
+      font-size: 3rem;
+      line-height: 40px;
+
+    }
+
+    .in-the {
+      position: relative;
+      top: -16px;
+    }
+
+    .east-blue {
+      font-size: 3rem;
+      line-height: 40px;
+    }
+  }
+
+  .text {
+    @media (min-width: $content-collapse) {
+      width: 300px;
+      padding-inline: 0;
+    }
+    padding-inline: 5em;
   }
 
   .slideshow > img {
-    @media (min-width: 870px) {
+    @media (min-width: $content-collapse) {
       width: 550px;
     }
 
-    width: calc(100vw - 2em);
+    width: calc(100vw - 6em);
   }
 }
