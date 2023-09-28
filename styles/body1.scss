@@ -246,9 +246,12 @@ section.body1 {
 
     position: absolute;
     width: calc(100vw - 3em);
-    height: 300px;
+    height: 280px;
     border-radius: 1em;
-    background-image: url("./images/Baratie-set.jpg");
-    background-size: cover;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
   }
 }
