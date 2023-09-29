@@ -5,18 +5,17 @@ export function body1() {
 
   let mql = window.matchMedia("(max-width: 950px)");
   let xOffset, yOffset;
+  setInterval(change, 3000);
 
   function handleMediaQuery() {
     if (mql.matches) {
       xOffset = 0;
       yOffset = 0;
       setSlideStyle();
-      clearInterval(cycle);
     } else {
       xOffset = 50;
       yOffset = 30;
       setSlideStyle();
-      const cycle = setInterval(change, 3000);
     }
   }
 
@@ -33,7 +32,6 @@ export function body1() {
 
   function change() {
     for (let i = 0; i < slides.length; i++) {
-      const reverse = slides.length - i;
       handleAnimaion(slides[i], slides.length);
     }
   }
@@ -42,11 +40,9 @@ export function body1() {
   document.onload = handleMediaQuery();
 
   function handleAnimaion(slide, length) {
-    const transform = window.getComputedStyle(slide).getPropertyValue("transform");
-    const transformArr = transform.split("(")[1].split(")")[0].split(",");
-    const xPos = parseInt(transformArr[4]);
-    const isReset = xPos >= 0;
-  
+    const getOpacity = window.getComputedStyle(slide).getPropertyValue("opacity")
+    const isReset = parseInt(getOpacity) >= 1
+
     const zIndex = parseInt(window.getComputedStyle(slide).getPropertyValue("z-index"));
     anime({
       targets: slide,

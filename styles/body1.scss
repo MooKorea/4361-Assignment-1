@@ -163,7 +163,7 @@ section.body1 {
 
     position: relative;
     top: calc(550px - 80vh);
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     background: linear-gradient(
@@ -184,7 +184,7 @@ section.body1 {
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    width: 100vw;
+    max-width: 100vw;
     padding-bottom: 4em;
     overflow: hidden;
   }
@@ -251,7 +251,11 @@ section.body1 {
     overflow: hidden;
 
     img {
-      width: 100%;
+      @media (min-width: 550px) {
+        width: 100%;
+        height: auto;
+      }
+      height: 100%;
     }
   }
 }
