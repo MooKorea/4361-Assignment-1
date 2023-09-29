@@ -5,7 +5,6 @@ export function body1() {
 
   let mql = window.matchMedia("(max-width: 950px)");
   let xOffset, yOffset;
-  setInterval(change, 3000);
 
   function handleMediaQuery() {
     if (mql.matches) {
@@ -30,43 +29,79 @@ export function body1() {
     }
   }
 
-  function change() {
-    for (let i = 0; i < slides.length; i++) {
-      handleAnimaion(slides[i], slides.length);
-    }
-  }
+  setTimeout(() => {
+    handleAnimation();
+  }, 1000);
 
   mql.addEventListener("change", handleMediaQuery);
   document.onload = handleMediaQuery();
 
-  function handleAnimaion(slide, length) {
-    const getOpacity = window.getComputedStyle(slide).getPropertyValue("opacity")
-    const isReset = parseInt(getOpacity) >= 1
-
-    const zIndex = parseInt(window.getComputedStyle(slide).getPropertyValue("z-index"));
+  function handleAnimation() {
     anime({
-      targets: slide,
-      translateX: isReset
-        ? [{ value: `+=${xOffset}px` }, { value: `-=${length * xOffset}px` }]
-        : `+=${xOffset}px`,
-      translateY: isReset
-        ? [{ value: `-=${yOffset}px` }, { value: `+=${length * yOffset}px` }]
-        : `-=${yOffset}px`,
+      targets: ".body1 .slideshow > div",
+      translateX: [
+        {
+          value: function (el, i, l) {
+            const zIndex = parseInt(anime.get(el, "z-index"));
+            return (zIndex - l + 1) * xOffset;
+          },
+        },
+        {
+          value: function (el, i, l) {
+            const zIndex = parseInt(anime.get(el, "z-index"));
+            if (zIndex === l - 1) {
+              return -l * xOffset;
+            } else {
+              return "+=0";
+            }
+          },
+        },
+      ],
+      translateY: [
+        {
+          value: function (el, i, l) {
+            const zIndex = parseInt(anime.get(el, "z-index"));
+            return -(zIndex - l + 1) * yOffset;
+          },
+        },
+        {
+          value: function (el, i, l) {
+            const zIndex = parseInt(anime.get(el, "z-index"));
+            if (zIndex === l - 1) {
+              return l * yOffset;
+            } else {
+              return "+=0";
+            }
+          },
+        },
+      ],
       opacity: {
-        value: isReset ? 0 : `+=${1 / (length - 1)}`,
+        value: function (el, i, l) {
+          const zIndex = parseInt(anime.get(el, "z-index"));
+          if (zIndex === l - 1) {
+            return 0;
+          } else {
+            return `+=${1 / (l - 1)}`;
+          }
+        },
         easing: "linear",
         duration: 300,
       },
+      zIndex: {
+        value: function (el, i, l) {
+          const zIndex = parseInt(anime.get(el, "z-index"));
+          if (zIndex === l - 1) {
+            return 0;
+          } else {
+            return `+=1`;
+          }
+        },
+      },
       duration: 1500,
-      delay: (length - zIndex) * 50,
+      delay: 2000,
       complete: () => {
-        anime({
-          targets: slide,
-          zIndex: isReset ? 0 : "+=1",
-          duration: 0,
-        });
+        handleAnimation();
       },
     });
   }
 }
-
