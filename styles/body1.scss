@@ -172,16 +172,15 @@ section.body1 {
       rgba(255, 255, 255, 0) 100%
     );
     &::before {
-      @media (min-width: 950px) {
-        background: linear-gradient(0deg, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
-        // opacity: 0.6;
+      @media (min-width: 450px) {
+        top: 300px;
       }
       content: "";
       position: absolute;
-      top: 300px;
+      top: 100px;
       width: 100%;
       height: 600px;
-      background-color: none;
+      background: linear-gradient(0deg, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
     }
   }
 

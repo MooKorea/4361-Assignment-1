@@ -16,14 +16,14 @@ export function enterSite() {
     anime({
       targets: ".fade-in",
       opacity: 1,
-      complete: () => {
-        introVideo.style.backgroundColor = "";
-      },
+      easing: 'linear',
+      duration: 300
     });
   };
 
   const handleEnterSite = async (e) => {
     document.querySelector(".intro-buttons").style.pointerEvents = "none";
+    introVideo.style.backgroundColor = "";
     if (e.target.className === "with-sound button") {
       document.querySelector(".select-sound").play();
     }

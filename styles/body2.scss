@@ -20,25 +20,30 @@ section.body2 {
     height: 0;
   }
 
+  $body2-collapse: 1000px;
+  $body2-mobile-collapse: 630px;
   .wavy-transition {
     width: 100%;
     svg {
       @media (min-width: 800px) {
         width: 120%;
       }
-      @media (min-width: 1240px) {
+      @media (min-width: $body2-collapse) {
         width: 100%;
+        filter: brightness(70%);
       }
       position: absolute;
       right: 0;
       width: 150%;
+      z-index: 1;
+      filter: brightness(50%);
     }
 
     .radial-gradient {
-        @media (min-width: 800px) {
-            visibility: visible;
-          }
-        visibility:hidden;
+      @media (min-width: 800px) {
+        visibility: visible;
+      }
+      visibility: hidden;
     }
   }
 
@@ -66,7 +71,7 @@ section.body2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 3;
     img {
       position: absolute;
       width: 100%;
@@ -103,6 +108,10 @@ section.body2 {
       top: calc(200px + 10vw);
     }
 
+    @media (min-width: $body2-collapse) {
+      padding-inline: 8em;
+    }
+
     @media (min-width: 1450px) {
       top: calc(60px + 20vw);
     }
@@ -112,6 +121,33 @@ section.body2 {
     justify-content: center;
     overflow: hidden;
     height: 900px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-image: url("./images/WoodTexture.jpg");
+      filter: brightness(50%);
+    }
+    &::after {
+      @media (min-width: $body2-collapse) {
+        visibility: hidden;
+      }
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle,
+        rgba(21, 35, 85, 1) 0%,
+        rgba(84, 94, 131, 0.7) 60%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      z-index: 1;
+      mix-blend-mode: multiply;
+    }
   }
 
   .content {
@@ -119,13 +155,13 @@ section.body2 {
       padding-inline: 7em;
     }
 
-    @media (min-width: 1240px) {
+    @media (min-width: $body2-collapse) {
       width: 1000px;
       flex-direction: row;
       justify-content: space-between;
       align-items: start;
       padding-inline: 0;
-      gap: 0;
+      gap: 4em;
     }
     display: flex;
     width: 100%;
@@ -133,6 +169,7 @@ section.body2 {
     flex-direction: column;
     align-items: center;
     gap: 8em;
+    z-index: 2;
   }
 
   .text {
@@ -140,7 +177,7 @@ section.body2 {
       padding-top: 6em;
     }
 
-    @media (min-width: 1240px) {
+    @media (min-width: $body2-collapse) {
       width: 400px;
       padding-top: 0;
     }
@@ -148,9 +185,11 @@ section.body2 {
     position: relative;
     padding-top: 0em;
     color: $white;
+
     h2 {
       color: white;
       font-size: 2rem;
+      filter: drop-shadow(0 0 10px rgb(0, 0, 0));
     }
 
     p {
@@ -158,7 +197,7 @@ section.body2 {
     }
 
     div {
-      @media (min-width: 630px) {
+      @media (min-width: $body2-mobile-collapse) {
         width: 250px;
       }
       margin-top: 1.5em;
@@ -179,35 +218,90 @@ section.body2 {
     width: 400px;
     height: 100%;
     position: relative;
+    z-index: 1;
     div {
       width: 400px;
       height: 400px;
-      background-color: rgb(204, 204, 204);
-      border-radius: 50%;
       position: absolute;
     }
 
+    div div {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    img {
+      width: 100%;
+    }
+
     .photo1 {
-      width: 600px;
-      height: 600px;
-      background-color: rgb(164, 184, 185);
+      @media (min-width: $body2-mobile-collapse) {
+        top: -160px;
+        right: -200px;
+        height: 500px;
+        width: 500px;
+      }
+
+      @media (min-width: $body2-collapse) {
+        top: 0;
+        right: -200px;
+        width: 600px;
+        height: 600px;
+      }
+
+      top: -80px;
+      right: calc(50% - 60vw);
+      width: 120vw;
+      height: 400px;
       z-index: 1;
     }
 
-    .photo2 {
+    .photo2, .blue-shadow {
+      @media (min-width: $body2-mobile-collapse) {
+        visibility: visible;
+      }
+      @media (min-width: $body2-collapse) {
+        top: 380px;
+        right: 100px;
+      }
+      @media (min-width: $body2-collapse) {
+        top: 380px;
+        right: 100px;
+      }
+      visibility: hidden;
+      top: -80px;
+      right: 230px;
       width: 420px;
       height: 420px;
-      top: 380px;
-      right: 100px;
       z-index: 2;
     }
 
+    .blue-shadow {
+      mix-blend-mode: multiply;
+      z-index: 3;
+      width: 440px;
+      height: 440px;
+      right: 30px;
+      top: 400px;
+      border-radius: 50%;
+      background-color: #71DBFC;
+    }
+
     .photo3 {
+      @media (min-width: $body2-collapse) {
+        visibility: visible;
+      }
+
+      @media (min-width: 1100px) {
+        left: 250px;
+      }
+      visibility: hidden;
       width: 350px;
       height: 350px;
       top: 520px;
-      left: 250px;
-      background-color: rgb(112, 124, 124);
+      left: 200px;
       z-index: 3;
     }
   }
