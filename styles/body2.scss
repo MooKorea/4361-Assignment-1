@@ -120,7 +120,7 @@ section.body2 {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    height: 900px;
+    height: 1300px;
 
     &::before {
       content: "";
@@ -148,6 +148,26 @@ section.body2 {
       z-index: 1;
       mix-blend-mode: multiply;
     }
+  }
+
+  .blue-shadow {
+    @media (min-width: $body2-collapse) {
+      visibility: visible;
+    }
+
+    @media (min-width: 1260px) {
+      right: calc(50vw - 430px);
+    }
+    visibility: hidden;
+    position: absolute;
+    mix-blend-mode: multiply;
+    z-index: 2;
+    width: 480px;
+    height: 480px;
+    right: calc(50vw - 380px);
+    top: 370px;
+    border-radius: 50%;
+    background-color: #71dbfc;
   }
 
   .content {
@@ -190,6 +210,26 @@ section.body2 {
       color: white;
       font-size: 2rem;
       filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+      letter-spacing: 1px;
+      line-height: 30px;
+      white-space: nowrap;
+    }
+
+    .the {
+      font-size: 1.5rem;
+    }
+
+    .finest {
+      font-size: 3rem;
+      letter-spacing: 1.5px;
+      color: $primary;
+    }
+
+    .dining-experience {
+      @media (min-width:400px) {
+        font-size: 2rem;
+      }
+      font-size: 1.8rem;
     }
 
     p {
@@ -218,7 +258,6 @@ section.body2 {
     width: 400px;
     height: 100%;
     position: relative;
-    z-index: 1;
     div {
       width: 400px;
       height: 400px;
@@ -249,16 +288,25 @@ section.body2 {
         right: -200px;
         width: 600px;
         height: 600px;
+        filter: drop-shadow(10px 15px 25px rgb(0, 0, 0));
       }
 
       top: -80px;
       right: calc(50% - 60vw);
       width: 120vw;
       height: 400px;
-      z-index: 1;
+      z-index: 0;
+      filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.514));
+
     }
 
-    .photo2, .blue-shadow {
+    .blue-shadow {
+      right: 270px;
+      width: 480px;
+      height: 480px;
+    }
+
+    .photo2 {
       @media (min-width: $body2-mobile-collapse) {
         visibility: visible;
       }
@@ -278,17 +326,6 @@ section.body2 {
       z-index: 2;
     }
 
-    .blue-shadow {
-      mix-blend-mode: multiply;
-      z-index: 3;
-      width: 440px;
-      height: 440px;
-      right: 30px;
-      top: 400px;
-      border-radius: 50%;
-      background-color: #71DBFC;
-    }
-
     .photo3 {
       @media (min-width: $body2-collapse) {
         visibility: visible;
@@ -303,6 +340,7 @@ section.body2 {
       top: 520px;
       left: 200px;
       z-index: 3;
+      filter: drop-shadow(10px 15px 20px rgb(0, 0, 0));
     }
   }
 }
