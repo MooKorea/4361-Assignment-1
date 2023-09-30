@@ -97,7 +97,7 @@ export function body1() {
           }
         },
       },
-      duration: 1500,
+      duration: 3000,
       delay: 2000,
       complete: () => {
         handleAnimation();
