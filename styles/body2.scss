@@ -121,6 +121,7 @@ section.body2 {
     justify-content: center;
     overflow: hidden;
     height: 1300px;
+    pointer-events: none;
 
     &::before {
       content: "";
@@ -205,6 +206,7 @@ section.body2 {
     position: relative;
     padding-top: 0em;
     color: $white;
+    pointer-events: all;
 
     h2 {
       color: white;
@@ -273,6 +275,7 @@ section.body2 {
 
     img {
       width: 100%;
+      pointer-events: all;
     }
 
     .photo1 {
