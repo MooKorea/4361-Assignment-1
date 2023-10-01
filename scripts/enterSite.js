@@ -60,6 +60,7 @@ export function enterSite() {
       anime({
         targets: ".intro-video-src",
         opacity: 0,
+        easing: 'linear'
       });
       document.querySelector("body").style.overflowY = "auto";
     }, 2000);
