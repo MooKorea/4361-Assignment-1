@@ -26,10 +26,30 @@ header {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100px;
-    height: 30px;
-    background-color: black;
+    width: 150px;
+    height: 150px;
     z-index: 5;
+    svg {
+      width: 100%;
+    }
+
+    .button {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      width: 55px;
+      height: 55px;        
+      filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+      transition: 0.2s;
+      &:hover {
+        cursor: pointer;
+        filter: drop-shadow(0px 0px 10px rgb(19, 169, 255));
+      }
+    }
+
+    img {
+      width: 100%;
+    }
   }
 
   .intro-buttons-container {

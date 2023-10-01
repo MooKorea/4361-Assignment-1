@@ -3,6 +3,7 @@ import sleep from "./sleep";
 
 export function enterSite() {
   const introVideo = document.querySelector(".intro-video");
+  if (introVideo === null) return
   const video = introVideo.querySelector("video");
 
   video.load();
@@ -21,11 +22,16 @@ export function enterSite() {
     });
   };
 
+  let isMuted = false;
+
   const handleEnterSite = async (e) => {
     document.querySelector(".intro-buttons").style.pointerEvents = "none";
     introVideo.style.backgroundColor = "";
     if (e.target.className === "with-sound button") {
       document.querySelector(".select-sound").play();
+    } else {
+      isMuted = true
+      document.querySelector(".mute-button img").setAttribute('src' , 'Images/MuteIcon.png')
     }
     anime({
       targets: ".with-sound",
@@ -63,4 +69,33 @@ export function enterSite() {
   const withoutSoundButton = document.querySelector(".without-sound");
   withSoundButton.addEventListener("click", handleEnterSite);
   withoutSoundButton.addEventListener("click", handleEnterSite);
+
+  //mute button
+  const muteButton = document.querySelector(".mute-button > .button");
+  const backGroundMusic = document.querySelector(".background-music");
+  if (backGroundMusic === null) return
+  backGroundMusic.volume = 0.5;
+  
+  const muteButtonIcon = document.querySelector(".mute-button img")
+  const handleMuteButton = () => {
+    isMuted = !isMuted;
+    if (isMuted) {
+      backGroundMusic.pause()
+      muteButtonIcon.setAttribute('src' , 'Images/MuteIcon.png')
+    } else {
+      backGroundMusic.play()
+      muteButtonIcon.setAttribute('src' , 'Images/SoundIcon.png')
+    }
+  };
+
+  muteButton.addEventListener("click", handleMuteButton);
+
+  //pause audio if page is not visible
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && !isMuted) {
+      backGroundMusic.play()
+    } else {
+      backGroundMusic.pause()
+    }
+  });
 }
