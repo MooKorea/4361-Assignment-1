@@ -104,4 +104,24 @@ export function body1() {
       },
     });
   }
+
+
+  //animate last slide
+  // anime({
+  //   targets: ".body1 .slideshow > div",
+  //   translateX: function (el) {
+  //     const zIndex = parseInt(anime.get(el, "z-index"));
+  //     if (zIndex === 1) {
+  //       return "+=20"
+  //     }
+  //   },
+  //   translateY: function (el) {
+  //     const zIndex = parseInt(anime.get(el, "z-index"));
+  //     if (zIndex === 1) {
+  //       return "+=20"
+  //     }
+  //   },
+  //   direction: 'alternate',
+  //   loop: true,
+  // })
 }

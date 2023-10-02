@@ -1,9 +1,19 @@
 import anime from "animejs";
 import sleep from "./sleep";
+import { headerAnimation, setheaderButtonPositions } from "./headerAnimation";
 
 export function enterSite() {
+  setheaderButtonPositions();
+
+  /* returns a true value if device has a touch screen no matter what 
+type of device it is */
+  const isTouchScreen = "ontouchstart" in window || navigator.msMaxTouchPoints;
+  if (isTouchScreen === true) {
+    document.querySelector("html").style.overflowX = "hidden"
+  }
+
   const introVideo = document.querySelector(".intro-video");
-  if (introVideo === null) return
+  if (introVideo === null) return;
   const video = introVideo.querySelector("video");
 
   video.load();
@@ -17,8 +27,8 @@ export function enterSite() {
     anime({
       targets: ".fade-in",
       opacity: 1,
-      easing: 'linear',
-      duration: 300
+      easing: "linear",
+      duration: 300,
     });
   };
 
@@ -30,8 +40,10 @@ export function enterSite() {
     if (e.target.className === "with-sound button") {
       document.querySelector(".select-sound").play();
     } else {
-      isMuted = true
-      document.querySelector(".mute-button img").setAttribute('src' , 'Images/MuteIcon.png')
+      isMuted = true;
+      document
+        .querySelector(".mute-button img")
+        .setAttribute("src", "Images/MuteIcon.png");
     }
     anime({
       targets: ".with-sound",
@@ -55,15 +67,16 @@ export function enterSite() {
     video.play();
     introVideo.style.pointerEvents = "none";
 
+    await sleep(2000);
     //fade video after 2 seconds
-    setTimeout(() => {
-      anime({
-        targets: ".intro-video-src",
-        opacity: 0,
-        easing: 'linear'
-      });
-      document.querySelector("body").style.overflowY = "auto";
-    }, 2000);
+    anime({
+      targets: ".intro-video-src",
+      opacity: 0,
+      easing: "linear",
+    });
+    document.querySelector("body").style.overflowY = "auto";
+
+    headerAnimation();
   };
 
   const withSoundButton = document.querySelector(".with-sound");
@@ -74,18 +87,18 @@ export function enterSite() {
   //mute button
   const muteButton = document.querySelector(".mute-button > .button");
   const backGroundMusic = document.querySelector(".background-music");
-  if (backGroundMusic === null) return
+  if (backGroundMusic === null) return;
   backGroundMusic.volume = 0.5;
-  
-  const muteButtonIcon = document.querySelector(".mute-button img")
+
+  const muteButtonIcon = document.querySelector(".mute-button img");
   const handleMuteButton = () => {
     isMuted = !isMuted;
     if (isMuted) {
-      backGroundMusic.pause()
-      muteButtonIcon.setAttribute('src' , 'Images/MuteIcon.png')
+      backGroundMusic.pause();
+      muteButtonIcon.setAttribute("src", "Images/MuteIcon.png");
     } else {
-      backGroundMusic.play()
-      muteButtonIcon.setAttribute('src' , 'Images/SoundIcon.png')
+      backGroundMusic.play();
+      muteButtonIcon.setAttribute("src", "Images/SoundIcon.png");
     }
   };
 
@@ -94,9 +107,9 @@ export function enterSite() {
   //pause audio if page is not visible
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible" && !isMuted) {
-      backGroundMusic.play()
+      backGroundMusic.play();
     } else {
-      backGroundMusic.pause()
+      backGroundMusic.pause();
     }
   });
 }
