@@ -1,0 +1,20 @@
+section.body4 {
+  z-index: 1;
+  position: relative;
+  max-width: 100vw;
+  height: 200px;
+  margin-top: calc(900px - 55vw);
+  .container {
+    position: absolute;
+    bottom: calc(80vh - 1250px);
+    left: 0;
+    width: 100vw;
+    height: 0;
+}
+
+.reviews-container {
+    width: 100%;
+    height: 500px;
+    background-color: rgb(173, 173, 173);
+  }
+}
