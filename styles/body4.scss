@@ -1,10 +1,15 @@
 section.body4 {
+  @media (min-width: 580px) {
+    margin-top: 200px;
+  }
+
   z-index: 1;
   position: relative;
   max-width: 100vw;
   height: 200px;
-  margin-top: calc(900px - 55vw);
+  pointer-events: none;
   .container {
+    pointer-events: all;
     position: absolute;
     bottom: calc(80vh - 1250px);
     left: 0;
