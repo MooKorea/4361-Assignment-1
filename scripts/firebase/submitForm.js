@@ -9,16 +9,35 @@ export function submitForm() {
   );
   const modal = document.querySelector(".review-modal");
   const closeButton = document.querySelector(".review-modal .close-button");
+  const modalContainer = document.querySelector(".review-modal .container");
 
   function activateModal(opacity) {
+    if (opacity === 1) {
+      modal.style.pointerEvents = "all";
+      modal.style.visibility = "visible";
+    }
+
+    const initial = opacity === 1 ? 0 : 1;
+
+    anime({
+      targets: modalContainer,
+      translateX: opacity === 1 ? ["100vw", 0] : "-100vw",
+      easing: opacity === 1 ? "easeOutElastic(1, .6)" : "easeInElastic(10, 1)",
+      duration: opacity === 1 ? 800 : 500
+    });
+
     anime({
       targets: modal,
-      opacity: [0, opacity],
+      opacity: [initial, opacity],
       easing: "linear",
       duration: 200,
+      delay: opacity === 1 ? 0 : 300,
+      complete: function (anim) {
+        if (opacity === 1) return;
+        modal.style.pointerEvents = "none";
+        modal.style.visibility = "hidden";
+      },
     });
-    modal.style.pointerEvents = opacity === 1 ? "all" : "none";
-    modal.style.visibility = opacity === 1 ? "visible" : "hidden";
   }
 
   // async function submitTest() {

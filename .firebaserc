@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "visitbaratie"
-  }
+    "visitbaratie": "visitbaratie"
+  },
+  "targets": {},
+  "etags": {}
 }

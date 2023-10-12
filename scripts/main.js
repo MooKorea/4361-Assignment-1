@@ -17,3 +17,6 @@ submitForm()
 
 import { isSignedIn } from "./firebase/isSignedIn";
 isSignedIn()
+
+import { starSelection } from "./starSelection";
+starSelection()

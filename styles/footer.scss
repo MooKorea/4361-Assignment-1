@@ -167,12 +167,46 @@ footer {
     padding: 0;
     font-size: 1.5rem;
     font-family: $textDisplay;
-    color:rgb(56, 27, 0);
+    color: rgb(56, 27, 0);
     transition: 0.1s;
 
     &:hover {
       cursor: pointer;
       opacity: 0.8;
+    }
+  }
+
+  .rating {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-block: 2em;
+    height: 50px;
+  }
+  
+  .rating > .container {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    svg {
+      position: absolute;
+      width: 300px;
+    }
+
+    .selection-container {
+      position: absolute;
+      height: 100%;
+      width: 300px;
+      display: flex;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .selection-container > div {
+      flex-grow: 1;
     }
   }
 }
