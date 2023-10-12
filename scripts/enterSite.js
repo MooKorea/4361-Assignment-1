@@ -2,6 +2,8 @@ import anime from "animejs";
 import sleep from "./sleep";
 import { headerAnimation, setheaderButtonPositions } from "./headerAnimation";
 
+export let introSkip = false;
+
 export function enterSite() {
   setheaderButtonPositions();
 
@@ -13,7 +15,10 @@ type of device it is */
   }
 
   const introVideo = document.querySelector(".intro-video");
-  if (introVideo === null) return;
+  if (introVideo === null) {
+    introSkip = true;
+    return
+  };
   const video = introVideo.querySelector("video");
 
   video.load();
@@ -36,6 +41,7 @@ type of device it is */
 
   const handleEnterSite = async (e) => {
     document.querySelector(".intro-buttons").style.pointerEvents = "none";
+    document.querySelector(".intro-buttons-container").style.pointerEvents = "none";
     introVideo.style.backgroundColor = "";
     if (e.target.className === "with-sound button") {
       document.querySelector(".select-sound").play();

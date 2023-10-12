@@ -4,6 +4,7 @@ import { currentUser } from "./isSignedIn";
 import anime from "animejs";
 import { percentage } from "../starSelection";
 import sleep from "../sleep";
+import { readData } from "./readData";
 
 export function submitForm() {
   const activateFormButton = document.querySelector(
@@ -73,6 +74,7 @@ export function submitForm() {
 
     await sleep(300);
     activateModal(0);
+    readData();
   }
 
   form.addEventListener("submit", getFormData);

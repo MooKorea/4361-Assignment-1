@@ -152,15 +152,15 @@
           </svg>
         </div>
         <div class="buttons">
-          <div class="menu">
+          <div class="menu button">
             <div class="log"></div>
             <div class="label">Menu</div>
           </div>
-          <div class="reserve">
+          <div class="reserve button">
             <div class="log"></div>
             <div class="label">Book a Table</div>
           </div>
-          <div class="hours">
+          <div class="hours button">
             <div class="log"></div>
             <div class="label">Hours & Location</div>
           </div>
@@ -511,22 +511,27 @@
                 </div>
               </div>
             </div>
-            <label for="reviewHeading">Heading</label><br />
+            <label for="reviewHeading">Heading</label>
             <input
               type="text"
               id="reviewHeading"
               name="reviewHeading"
               placeholder="Best food ever!"
               autocomplete="off"
+              maxlength="50"
               required
-            /><br />
-            <label for="reviewText">Review</label><br />
+            />
+            <div class="counter reviewHeadingCounter"></div>
+            <br />
+            <label for="reviewText">Review</label>
             <textarea
               id="reviewText"
               name="reviewText"
               placeholder="Say something nice!"
+              maxlength="800"
               required
             ></textarea>
+            <div class="counter reviewTextCounter"></div>
             <input
               class="submit"
               type="submit"

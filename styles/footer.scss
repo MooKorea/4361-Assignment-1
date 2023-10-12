@@ -12,6 +12,7 @@ footer {
     justify-content: center;
     background-color: rgb(204, 204, 204);
     color: $footer-color;
+    font-family: $textRegular;
   }
 
   .welcome-user {
@@ -195,6 +196,7 @@ footer {
     width: 400px;
     color: $white;
     font-family: $textRegular;
+    position: relative;
   }
 
   .user-info {
@@ -234,11 +236,11 @@ footer {
     border-radius: 10px;
     padding: 0.5em;
     font-family: $textRegular;
-    margin-bottom: 2em;
   }
-
+  
   input {
     height: 40px;
+    margin-bottom: 0.5em;
   }
 
   textarea {
@@ -246,10 +248,21 @@ footer {
     height: 160px;
   }
 
+  .counter {
+    position: absolute;
+    right: 0;
+    font-size: 0.8rem;
+  }
+
   label {
     font-family: $textDisplay;
     font-size: 1.5rem;
     letter-spacing: 1px;
+  }
+
+  label[for="reviewText"] {
+    display: block;
+    margin-top: 1em;
   }
 
   textarea:focus,
@@ -259,7 +272,7 @@ footer {
 
   .submit {
     background-color: $primary;
-    margin: 0 0 2em 0;
+    margin: 2em 0 2em 0;
     padding: 0;
     font-size: 1.5rem;
     font-family: $textDisplay;

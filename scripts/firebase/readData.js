@@ -2,14 +2,17 @@ import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import { grayStars, yellowStars } from "./starsSVG";
 
+const reviewsContainer = document.querySelector(".body4 .reviews-container");
 export async function readData() {
   const querySnapshot = await getDocs(collection(db, "users"));
+  while (reviewsContainer.lastElementChild) {
+    reviewsContainer.removeChild(reviewsContainer.lastElementChild);
+  }
   querySnapshot.forEach((doc) => {
     handleReview(doc.data());
   });
 }
 
-const reviewsContainer = document.querySelector(".body4 .reviews-container");
 function handleReview(data) {
   if (!data.formSubmitted) return;
 

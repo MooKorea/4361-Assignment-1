@@ -125,9 +125,7 @@ section.body1 {
       }
     }
 
-    .menu > .log,
-    .reserve > .log,
-    .hours > .log {
+    .button > .log {
       @media (max-width: 630px) {
         height: 60px;
         width: calc(100vw - 2em);
@@ -139,9 +137,7 @@ section.body1 {
       background-size: 100% 100%;
     }
 
-    .menu,
-    .reserve,
-    .hours {
+    .button {
       @media (max-width: 630px) {
         font-size: 1.5rem;
         line-height: normal;
@@ -154,11 +150,16 @@ section.body1 {
         span {
           display: inline-block;
         }
+
+      }
+      &:hover {
+        cursor: pointer;
       }
     }
 
     .label {
       text-wrap: wrap;
+      user-select: none
     }
   }
 

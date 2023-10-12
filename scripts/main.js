@@ -23,3 +23,10 @@ starSelection();
 
 import { readData } from "./firebase/readData";
 readData();
+
+import { characterCount } from "./characterCount";
+characterCount(".review-modal #reviewText", ".review-modal .reviewTextCounter");
+characterCount(".review-modal #reviewHeading", ".review-modal .reviewHeadingCounter");
+
+import { buttonEffects } from "./headerAnimation";
+buttonEffects();
