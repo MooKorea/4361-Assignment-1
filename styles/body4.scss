@@ -1,25 +1,129 @@
 section.body4 {
   @media (min-width: 580px) {
-    margin-top: 200px;
+    margin-top: calc(1600px - 80vh);
   }
 
+  @media (min-width: 1000px) {
+    margin-top: calc(1300px - 80vh);
+  }
+
+  @media (min-width: 1200px) {
+    margin-top: calc(1470px - 80vh);
+  }
+
+  margin-top: calc(100px - 80vh);
   z-index: 1;
   position: relative;
   max-width: 100vw;
-  height: 200px;
   pointer-events: none;
   .container {
     pointer-events: all;
-    position: absolute;
-    bottom: calc(80vh - 1250px);
-    left: 0;
     width: 100vw;
-    height: 0;
-}
+  }
 
-.reviews-container {
+  .reviews-container-container {
     width: 100%;
-    height: 500px;
     background-color: rgb(173, 173, 173);
+    padding-block: 2em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reviews-container {
+    padding-inline: 4em;
+    display: grid;
+    gap: 4em;
+    row-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 220px;
+  }
+
+  $review-height: 220px;
+  .review {
+    height: $review-height;
+    background-color: $white;
+    border-radius: 10px;
+    position: relative;
+    padding-block: 0.8em;
+    padding-inline: 1.3em;
+  }
+
+  .rating {
+    margin-left: 2em;
+    height: 20px;
+    position: relative;
+    svg {
+      position: absolute;
+      height: 100%;
+    }
+  }
+
+  .name-date {
+    margin-left: 2.3em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .name {
+    font-family: $textBold;
+    font-size: 1.2rem;
+    color: $secondary;
+  }
+
+  .date {
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  .profile-picture {
+    background-color: gray;
+    position: absolute;
+    top: -10px;
+    left: -40px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-size: cover;
+  }
+
+  .body {
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 27%);
+    mask-image: linear-gradient(to top, transparent 0%, black 27%);
+    height: calc($review-height - 120px);
+    position: relative;
+    top: -0.6em;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 1px;
+      width: 100%;
+      background-color: rgb(214, 214, 214);
+    }
+  }
+
+  .title {
+    margin-top: 1.5em;
+    padding-top: 0.5em;
+    font-family: $textBold;
+    letter-spacing: 0.3px;
+    color: $secondary;
+    position: relative;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgb(99, 99, 99);
+  }
+
+  .see-more {
+    font-size: 0.85rem;
+    color: rgb(131, 131, 131);
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

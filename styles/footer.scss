@@ -3,21 +3,91 @@ footer {
   position: relative;
   max-width: 100vw;
   height: 200px;
-  pointer-events: none;
-  // margin-top: calc(900px);
+  $footer-color: rgb(54, 54, 54);
+
   .container {
-    pointer-events: all;
-    position: absolute;
-    bottom: calc(80vh - 1350px);
-    left: 0;
-    width: 100vw;
-    height: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(204, 204, 204);
+    color: $footer-color;
+  }
+
+  .welcome-user {
+    font-family: $textBold;
+    letter-spacing: 0.5px;
+  }
+
+  .vertical-line {
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0.8);
+    background-color: rgb(168, 168, 168);
+    margin-inline: 3em;
   }
 
   .buttons {
+    margin-top: 2em;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    border: none;
     width: 100%;
-    height: 200px;
-    background-color: rgb(204, 204, 204);
+    height: 40px;
+    font-family: $textRegular;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-block: 0.5em;
+    background-color: $footer-color;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .sign-out,
+  .sign-in {
+    letter-spacing: 1px;
+    color: $footer-color;
+    background-color: transparent;
+    border: solid 2px $footer-color;
+  }
+
+  .sign-in {
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    gap: 2em;
+    height: 50px;
+    img {
+      height: 25px;
+      opacity: 0.5;
+    }
+  }
+
+  .icons > img {
+    height: 40px;
+  }
+
+  .socials {
+    margin-top: 2em;
+    width: 300px;
+  }
+
+  .socials > div {
+    font-family: $textBold;
+    letter-spacing: 1px;
+  }
+
+  .leave-a-review {
+    font-family: $textBold;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -74,12 +144,14 @@ footer {
   }
 
   .title {
-    position: relative;
+    position: absolute;
     top: -45px;
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+
     img {
       position: absolute;
       height: 100%;
@@ -91,12 +163,35 @@ footer {
       font-size: 2.3rem;
       color: $primary;
       text-shadow: 1px 4px 10px rgb(0, 0, 0);
+      letter-spacing: 1px;
     }
   }
 
+  .form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    padding-top: 8em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @media (max-height: 830px) {
+      background: #1a1a1acc;
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(167, 167, 167);
+    border-radius: 5px;
+  }
+
   form {
-    position: relative;
-    top: -35px;
     width: 400px;
     color: $white;
     font-family: $textRegular;
@@ -119,6 +214,7 @@ footer {
     width: 50px;
     background-color: $white;
     border-radius: 50%;
+    background-size: cover;
   }
 
   .username {
@@ -163,7 +259,7 @@ footer {
 
   .submit {
     background-color: $primary;
-    margin: 0;
+    margin: 0 0 2em 0;
     padding: 0;
     font-size: 1.5rem;
     font-family: $textDisplay;
@@ -182,8 +278,10 @@ footer {
     justify-content: center;
     margin-block: 2em;
     height: 50px;
+    position: relative;
+    z-index: 0;
   }
-  
+
   .rating > .container {
     width: 300px;
     display: flex;

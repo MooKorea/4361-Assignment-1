@@ -1,22 +1,25 @@
 import "../styles/style.scss";
 
-import { body1 } from "./body1.js"
+import { body1 } from "./body1.js";
 body1();
 
-import { body2 } from "./body2.js"
+import { body2 } from "./body2.js";
 body2();
 
 import { enterSite } from "./enterSite";
 enterSite();
 
 import { signIn } from "./firebase/signIn";
-signIn()
+signIn();
 
 import { submitForm } from "./firebase/submitForm";
-submitForm()
+submitForm();
 
 import { isSignedIn } from "./firebase/isSignedIn";
-isSignedIn()
+isSignedIn();
 
 import { starSelection } from "./starSelection";
-starSelection()
+starSelection();
+
+import { readData } from "./firebase/readData";
+readData();

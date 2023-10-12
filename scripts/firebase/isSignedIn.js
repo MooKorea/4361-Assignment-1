@@ -15,8 +15,8 @@ export function isSignedIn() {
     } else {
       currentUser = null;
     }
-    signedOutElements.forEach((e) => (e.hidden = !!user));
-    signedInElements.forEach((e) => (e.hidden = !user));
+    signedOutElements.forEach((e) => (e.style.display = !!user ? "none" : ""));
+    signedInElements.forEach((e) => (e.style.display = !user ? "none" : ""));
   });
 }
 
@@ -25,7 +25,7 @@ async function handleUserSignIn(user) {
   const getSubmitButton = document.querySelector(
     "footer .buttons .activate-review-modal"
   );
-  const reviewThanks = document.querySelector(".review-thanks")
+  const reviewThanks = document.querySelector(".review-thanks");
 
   currentUser = user;
   welcomeUser.innerHTML = `Welcome, ${user.displayName}!`;
@@ -33,12 +33,11 @@ async function handleUserSignIn(user) {
   const docRef = doc(db, "users", user.uid);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    const data = docSnap.data()
-    getSubmitButton.hidden = data.formSubmitted
-    reviewThanks.hidden = !data.formSubmitted
+    const data = docSnap.data();
+    getSubmitButton.style.display = data.formSubmitted ? "none" : "";
+    reviewThanks.style.display = !data.formSubmitted ? "none" : "";
   } else {
-    console.log("creating user data")
-    reviewThanks.hidden = true;
+    reviewThanks.style.display = "none";
     try {
       await setDoc(doc(db, "users", currentUser.uid), {
         formSubmitted: false,
