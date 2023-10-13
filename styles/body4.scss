@@ -20,15 +20,13 @@ section.body4 {
     pointer-events: all;
     width: 100vw;
   }
-
-  .reviews-container-container {
-    width: 100%;
-    background-color: rgb(173, 173, 173);
-    padding-block: 2em;
-    display: flex;
-    justify-content: center;
-  }
-
+}
+.reviews-container-container {
+  width: 100%;
+  background-color: rgb(173, 173, 173);
+  padding-block: 2em;
+  display: flex;
+  justify-content: center;
   .reviews-container {
     padding-inline: 4em;
     display: grid;
@@ -37,19 +35,17 @@ section.body4 {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-rows: 220px;
   }
+}
 
-  $review-height: 220px;
-  .review {
-    height: $review-height;
-    background-color: $white;
-    border-radius: 10px;
-    position: relative;
-    padding-block: 0.8em;
-    padding-inline: 1.3em;
-    font-family: $textRegular;
-
-  }
-
+$review-height: 220px;
+.review {
+  height: $review-height;
+  background-color: $white;
+  border-radius: 10px;
+  position: relative;
+  padding-block: 0.8em;
+  padding-inline: 1.3em;
+  font-family: $textRegular;
   .rating {
     margin-left: 2em;
     height: 20px;
@@ -124,8 +120,64 @@ section.body4 {
     font-size: 0.85rem;
     color: rgb(131, 131, 131);
     text-decoration: underline;
+    display: inline-block;
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.user-review-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.452);
+
+  .container {
+    width: 600px;
+    position: relative;
+  }
+
+  .close-button {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: $white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 5px rgb(8, 8, 8));
+    z-index: 1;
+    svg {
+      height: 25px;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .review {
+    height: 500px;
+  }
+
+  .see-more {
+    visibility: hidden;
+  }
+
+  .body {
+    -webkit-mask-image: none;
+    mask-image: none;
+    height: auto;
   }
 }

@@ -26,7 +26,13 @@ readData();
 
 import { characterCount } from "./characterCount";
 characterCount(".review-modal #reviewText", ".review-modal .reviewTextCounter");
-characterCount(".review-modal #reviewHeading", ".review-modal .reviewHeadingCounter");
+characterCount(
+  ".review-modal #reviewHeading",
+  ".review-modal .reviewHeadingCounter"
+);
 
 import { buttonEffects } from "./headerAnimation";
 buttonEffects();
+
+import { seeMore } from "./seeMore";
+seeMore();
