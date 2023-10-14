@@ -21,18 +21,18 @@ isSignedIn();
 import { starSelection } from "./starSelection";
 starSelection();
 
-import { readData } from "./firebase/readData";
-readData();
+// import { readData } from "./firebase/readData";
+// readData();
 
 import { characterCount } from "./characterCount";
 characterCount(".review-modal #reviewText", ".review-modal .reviewTextCounter");
-characterCount(
-  ".review-modal #reviewHeading",
-  ".review-modal .reviewHeadingCounter"
-);
+characterCount(".review-modal #reviewHeading", ".review-modal .reviewHeadingCounter");
 
 import { buttonEffects } from "./headerAnimation";
 buttonEffects();
 
 import { seeMore } from "./seeMore";
 seeMore();
+
+import { moreReviewsButton } from "./firebase/readData";
+moreReviewsButton();
