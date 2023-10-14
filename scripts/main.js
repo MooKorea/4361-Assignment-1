@@ -21,9 +21,6 @@ isSignedIn();
 import { starSelection } from "./starSelection";
 starSelection();
 
-// import { readData } from "./firebase/readData";
-// readData();
-
 import { characterCount } from "./characterCount";
 characterCount(".review-modal #reviewText", ".review-modal .reviewTextCounter");
 characterCount(".review-modal #reviewHeading", ".review-modal .reviewHeadingCounter");

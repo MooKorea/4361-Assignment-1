@@ -238,7 +238,7 @@ section.body2 {
       font-family: $textLight;
     }
 
-    div {
+    .reserve-button {
       @media (min-width: $body2-mobile-collapse) {
         width: 250px;
       }
@@ -252,7 +252,12 @@ section.body2 {
       align-items: center;
       border-radius: 10px;
       border: solid 4px $white;
+      transition: 0.2s;
       filter: drop-shadow(0 0 4px rgb(0, 0, 0));
+      &:hover {
+        cursor: pointer;
+        filter: drop-shadow(0 0 4px rgb(87, 83, 51));
+      }
     }
   }
 

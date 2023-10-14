@@ -1,16 +1,29 @@
 footer {
+  @media (min-width: 800px) {
+    height: 200px;
+    padding: 0;
+  }
   z-index: 1;
   position: relative;
   max-width: 100vw;
-  height: 200px;
+  height: auto;
+  padding-bottom: 4em;
+  background-color: rgb(204, 204, 204);
+
   $footer-color: rgb(54, 54, 54);
 
   .container {
+    @media (min-width: 800px) {
+      flex-direction: row;
+      align-items: start;
+    }
+
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background-color: rgb(204, 204, 204);
     color: $footer-color;
     font-family: $textRegular;
   }
@@ -77,6 +90,12 @@ footer {
   }
 
   .socials {
+    @media (max-width: 799px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
     margin-top: 2em;
     width: 300px;
   }
@@ -237,7 +256,7 @@ footer {
     padding: 0.5em;
     font-family: $textRegular;
   }
-  
+
   input {
     height: 40px;
     margin-bottom: 0.5em;

@@ -17,7 +17,7 @@ export function seeMore() {
       modalContainer.querySelector(".yellow-stars").style.clipPath =
         data.rating;
       modalContainer.querySelector(".profile-picture").style.backgroundImage = data.pfp
-      modalContainer.querySelector(".date").innerText = data.date
+      modalContainer.querySelectorAll(".date").forEach(e => e.innerText = data.date)
       modalContainer.querySelector(".name").innerText = data.name
       modalContainer.querySelector(".title").innerText = data.title
       modalContainer.querySelector("p").innerText = data.text

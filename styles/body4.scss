@@ -11,7 +11,7 @@ section.body4 {
     margin-top: calc(1470px - 80vh);
   }
 
-  margin-top: calc(100px - 80vh);
+  margin-top: calc(1400px - 80vh);
   z-index: 1;
   position: relative;
   max-width: 100vw;
@@ -29,14 +29,19 @@ section.body4 {
   display: flex;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 
   .reviews-container {
-    padding-inline: 4em;
-    display: grid;
-    gap: 4em;
-    row-gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    grid-auto-rows: 220px;
+    @media (min-width: 470px) {
+      display: grid;
+      gap: 4em;
+      row-gap: 2em;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-auto-rows: 220px;
+      padding-inline: 4em;
+    }
+
+    padding-inline: 1em;
   }
 
   .more-reviews {
@@ -60,6 +65,10 @@ section.body4 {
 
 $review-height: 220px;
 .review {
+  @media (max-width: 469px) {
+    padding-top: 0.4em;
+    margin-top: 1em;
+  }
   height: $review-height;
   background-color: $white;
   border-radius: 10px;
@@ -74,6 +83,14 @@ $review-height: 220px;
     svg {
       position: absolute;
       height: 100%;
+    }
+
+    .date {
+      @media (min-width: 470px) {
+        visibility: hidden;
+      }
+      position: absolute;
+      left: 140px;
     }
   }
 
@@ -96,13 +113,28 @@ $review-height: 220px;
     opacity: 0.7;
   }
 
+  .name-date > .date {
+    @media (min-width: 470px) {
+      width: auto;
+    }
+    width: 0;
+    overflow: hidden;
+  }
+
   .profile-picture {
+    @media (min-width: 470px) {
+      height: 80px;
+      width: 80px;
+      top: -10px;
+      left: -40px;
+    }
+
     background-color: gray;
     position: absolute;
-    top: -10px;
-    left: -40px;
-    height: 80px;
-    width: 80px;
+    top: 10px;
+    left: 5px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     background-size: cover;
   }
@@ -164,6 +196,7 @@ $review-height: 220px;
   .container {
     width: 600px;
     position: relative;
+    margin-inline: 2em;
   }
 
   .close-button {
@@ -190,7 +223,18 @@ $review-height: 220px;
   }
 
   .review {
-    height: 500px;
+    @media (max-width: 469px) {
+      overflow-y: scroll;
+    }
+
+    @media (min-width: 650px) {
+      height: 500px;
+    }
+    height: calc(100vh - 4em);
+  }
+
+  .name-date {
+    height: auto;
   }
 
   .see-more {

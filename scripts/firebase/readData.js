@@ -1,6 +1,8 @@
 import { collection, getDocs, query, limit, where, startAfter } from "firebase/firestore";
 import { db } from "./firebaseConfig";
-import { grayStars, yellowStars } from "./starsSVG";
+import { review } from "./review";
+import anime from "animejs";
+import sleep from "../sleep";
 
 const button = document.querySelector(".body4 .more-reviews");
 const reviewsContainer = document.querySelector(".body4 .reviews-container");
@@ -28,6 +30,7 @@ export function moreReviewsButton() {
       reviewsContainer.removeChild(reviewsContainer.lastElementChild);
     }
     firstQuery = undefined;
+
     readData();
   }
 
@@ -37,7 +40,11 @@ export function moreReviewsButton() {
   document.onload = handleColumnAmount();
 }
 
+let containerHeightBefore = 0;
+const container = document.querySelector(".body4 .reviews-container-container");
 export async function readData() {
+  button.style.opacity = "0.5";
+  button.style.pointerEvents = "none";
   const usersRef = collection(db, "users");
   let q;
   if (firstQuery === undefined) {
@@ -59,61 +66,25 @@ export async function readData() {
     if (querySnapshot.docs[i] === undefined) break;
     handleReview(querySnapshot.docs[i].data());
   }
-  
-  //grey out button if no more reviews exist
-  if (querySnapshot.docs[readAmount] === undefined) {
-    button.style.opacity = "0.5";
-    button.style.pointerEvents = "none";
-  } else {
-    button.style.opacity = "1";
-    button.style.pointerEvents = "all";
-  }
+
+  const height = container.offsetHeight;
+  anime({
+    targets: container,
+    height: [containerHeightBefore, `${height}px`],
+    duration: 1500,
+    easing: "easeOutElastic(1, 1)",
+    complete: () => {
+      containerHeightBefore = container.offsetHeight;
+      container.style.height = "auto";
+
+      //grey out button if no more reviews exist
+      if (querySnapshot.docs[readAmount] === undefined) return;
+      button.style.opacity = "1";
+      button.style.pointerEvents = "all";
+    },
+  });
 }
 
 function handleReview(data) {
-  const textLength = data.reviewText.length;
-  let nameSize = "1.2rem";
-  if (data.name.length > 16) nameSize = "0.8rem";
-
-  const review = document.createElement("div");
-  review.classList.add("review");
-  review.innerHTML = `
-    <div class="profile-picture" style="background-image:url('${data.photo}')"></div>
-    <div class="name-date">
-      <div class="name" style="font-size:${nameSize};">
-        ${data.name}
-      </div>
-      <div class="date">${data.date}</div>
-    </div>
-    <div class="rating">
-      <svg
-        class="gray-stars"
-        viewBox="0 0 174 27"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        ${grayStars}
-      </svg>
-      <svg
-        class="yellow-stars"
-        viewBox="0 0 174 27"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style="clip-path:polygon(0 0, ${data.rating}% 0, ${data.rating}% 100%, 0% 100%)"
-      >
-        ${yellowStars}
-      </svg>
-    </div>
-    <div class="body">
-      <div class="title">${data.reviewHeading}</div>
-      <p>
-        ${data.reviewText}
-      </p>
-    </div>
-    <div class="see-more" style="visibility:${textLength > 100 ? "" : "hidden"}">
-      See More
-    </div>
-    `;
-
-  reviewsContainer.appendChild(review);
+  review(data);
 }
