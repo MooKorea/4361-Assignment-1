@@ -2,7 +2,6 @@ import { collection, getDocs, query, limit, where, startAfter } from "firebase/f
 import { db } from "./firebaseConfig";
 import { review } from "./review";
 import anime from "animejs";
-import sleep from "../sleep";
 
 const button = document.querySelector(".body4 .more-reviews");
 const reviewsContainer = document.querySelector(".body4 .reviews-container");
@@ -15,7 +14,7 @@ export function moreReviewsButton() {
   let col4 = window.matchMedia("(min-width: 1840px)");
   let col3 = window.matchMedia("(min-width: 1396px)");
   let col2 = window.matchMedia("(min-width: 952px)");
-  function handleColumnAmount() {
+  async function handleColumnAmount() {
     if (col4.matches) {
       readAmount = 8;
     } else if (col3.matches) {
@@ -25,7 +24,6 @@ export function moreReviewsButton() {
     } else {
       readAmount = 2;
     }
-
     while (reviewsContainer.lastElementChild) {
       reviewsContainer.removeChild(reviewsContainer.lastElementChild);
     }
@@ -41,8 +39,12 @@ export function moreReviewsButton() {
 }
 
 let containerHeightBefore = 0;
+let isReading = false;
 const container = document.querySelector(".body4 .reviews-container-container");
 export async function readData() {
+  if (isReading) return
+  isReading = true;
+
   button.style.opacity = "0.5";
   button.style.pointerEvents = "none";
   const usersRef = collection(db, "users");
@@ -64,7 +66,7 @@ export async function readData() {
 
   for (let i = 0; i < readAmount; i++) {
     if (querySnapshot.docs[i] === undefined) break;
-    handleReview(querySnapshot.docs[i].data());
+    review(querySnapshot.docs[i].data());
   }
 
   const height = container.offsetHeight;
@@ -76,6 +78,7 @@ export async function readData() {
     complete: () => {
       containerHeightBefore = container.offsetHeight;
       container.style.height = "auto";
+      isReading = false;
 
       //grey out button if no more reviews exist
       if (querySnapshot.docs[readAmount] === undefined) return;
@@ -83,8 +86,4 @@ export async function readData() {
       button.style.pointerEvents = "all";
     },
   });
-}
-
-function handleReview(data) {
-  review(data);
 }
